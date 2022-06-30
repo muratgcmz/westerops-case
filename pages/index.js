@@ -65,7 +65,7 @@ const handleSubmit = (e) => {
               type="text"
               value={todoItem}
               placeholder="Add a task..."
-              onChange={(e) => console.log(todoItem)}
+              onChange={(e) => setTodoItem(e.target.value)}
               
             />
           </div>
