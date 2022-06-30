@@ -8,6 +8,7 @@ export default function Home() {
   const { data, error } = useSWR("/api/todos", fetcher);
   const [todoItem, setTodoItem] = useState(null);
 
+  
   const addTodo = async (title) => {
     await fetcher("/api/todos", {
       method: "POST",
@@ -22,6 +23,7 @@ export default function Home() {
 
 const handleSubmit = (e) => {
   e.preventDefault();
+  console.log(data);
   console.log(todoItem);
   addTodo(todoItem);
   setTodoItem("");
@@ -63,7 +65,8 @@ const handleSubmit = (e) => {
               type="text"
               value={todoItem}
               placeholder="Add a task..."
-              onChange={(e) => setTodoItem(e.target.value)}
+              onChange={(e) => console.log(todoItem)}
+              
             />
           </div>
           <button
